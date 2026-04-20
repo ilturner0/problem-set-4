@@ -4,6 +4,8 @@ PART 4: CATEGORICAL PLOTS
 - Update main() in main.py to generate the plots and print statments when called
 - All plots should be output as PNG files to `data/part4_plots`
 '''
+import seaborn as sns
+import matplotlib.pyplot as plt
 
 ##  UPDATE `part1_etl.py`  ##
 # 1. The charge_no column in arrest events tells us the charge degree and offense category for each arrest charge. 
@@ -20,16 +22,28 @@ PART 4: CATEGORICAL PLOTS
 
 ##  PLOTS  ##
 # 1. Create a catplot where the categories are charge type and the y-axis is the prediction for felony rearrest. Set kind='bar'.
-
+def do_cat_1(full_merged):
+    sns.catplot(data=full_merged, x='charge_degree', y='prediction_felony',kind='bar')
+    plt.savefig('./data/part4_plots/catPlot1.png', bbox_inches='tight')
+    return
 
 # 2. Now repeat but have the y-axis be prediction for nonfelony rearrest
 # 
 # In a print statement, answer the following question: What might explain the difference between the plots?
-
-
+def do_cat_2(full_merged):
+    sns.catplot(data=full_merged, x='charge_degree', y='prediction_nonfelony',kind='bar')
+    plt.savefig('./data/part4_plots/catPlot2.png', bbox_inches='tight')
+    print("The main difference between the two plots is that the misdemeanor category is much more prevalent in catPlot2, while the felony category doesn't change much. This difference between the two plots could be explained by the fact that felons are more likely to be rearrested regardless of charge type, whereas someone arrested for a misdemeanor is much more likely to be rearrested for another misdemeanor than they are to be arrested for a felony.")
+    return
 # 3. Repeat the plot from 1, but hue by whether the person actually got rearrested for a felony crime
 # 
 # In a print statement, answer the following question: 
 # What does it mean that prediction for arrestees with a current felony charge, 
 # but who did not get rearrested for a felony crime have a higher predicted probability than arrestees with a current misdemeanor charge, 
 # but who did get rearrested for a felony crime?
+
+def do_cat_3(full_merged):
+    sns.catplot(data=full_merged, x='charge_degree', y='prediction_felony', kind='bar', hue='y_felony')
+    plt.savefig('./data/part4_plots/catPlot3.png', bbox_inches='tight')
+    print("This difference means that arrestees that have a current felony charge are predicted as more likely to commit another felony than arrestess with only misdemeanor charges.")
+    return

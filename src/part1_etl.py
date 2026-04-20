@@ -36,5 +36,10 @@ def extract_transform():
     # Creates two additional dataframes using groupbys
     charge_counts = arrest_events.groupby(['charge_degree']).size().reset_index(name='count')
     charge_counts_by_offense = arrest_events.groupby(['charge_degree', 'offense_category']).size().reset_index(name='count')
+
+    #Frames from part 4
+    felony_charge=arrest_events.groupby('arrest_id').apply(lambda x: any(x['charge_degree'].str.contains('felony'))).to_frame().reset_index().rename(columns={0:'has_felony_charge'})
+    merged_pred=pred_universe.merge(felony_charge, on='arrest_id', how='inner')
+    merged_fels_preds_arrests=merged_pred.merge(arrest_events, on='person_id', how='inner')
     
-    return pred_universe, arrest_events, charge_counts, charge_counts_by_offense
+    return pred_universe, arrest_events, charge_counts, charge_counts_by_offense, felony_charge, merged_fels_preds_arrests

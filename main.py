@@ -16,7 +16,7 @@ def main():
     directories = ['data/part2_plots', 'data/part3_plots', 'data/part4_plots', 'data/part5_plots']
     part1.create_directories(directories)
     
-    pred_universe, arrest_events, charge_counts, charge_counts_by_offense = part1.extract_transform()
+    pred_universe, arrest_events, charge_counts, charge_counts_by_offense, felony_charge, merged_felonies = part1.extract_transform()
     
     ##  PART 2: PLOT EXAMPLES  ##
     # Apply plot theme
