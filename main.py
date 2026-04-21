@@ -30,25 +30,25 @@ def main():
 
     ##  PART 3: BAR PLOTS AND HISTOGRAMS  ##
     # 1
-
+    part3.do_fta_bar_plot(pred_universe)
     # 2
-
+    part3.do_hued_fta_bar_plot(pred_universe)
     # 3
-
+    part3.do_histogram(pred_universe)
     # 4
-
+    part3.do_binned_histogram(pred_universe)
     ##  PART 4: CATEGORICAL PLOTS  ##
     # 1
-    
+    part4.do_cat_1(merged_felonies)
     # 2
-
+    part4.do_cat_2(merged_felonies)
     # 3
-
+    part4.do_cat_3(merged_felonies)
     ##  PART 5: SCATTERPLOTS  ##
     # 1
-    
+    part5.do_scatter1(merged_felonies)
     # 2
-
+    part5.do_scatter2(merged_felonies)
 
 if __name__ == "__main__":
     main()

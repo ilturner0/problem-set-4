@@ -23,6 +23,12 @@ import matplotlib.pyplot as plt
 ##  PLOTS  ##
 # 1. Create a catplot where the categories are charge type and the y-axis is the prediction for felony rearrest. Set kind='bar'.
 def do_cat_1(full_merged):
+    '''
+    Creates a catplot from the charge_degree and prediction_felony columns in the full_merged dataframe.
+
+    parameters:
+        full_merged, dataframe: The merge of felony_charge, pred_universe, and arrest_events dataframes. 
+    '''
     sns.catplot(data=full_merged, x='charge_degree', y='prediction_felony',kind='bar')
     plt.savefig('./data/part4_plots/catPlot1.png', bbox_inches='tight')
     return
@@ -31,6 +37,12 @@ def do_cat_1(full_merged):
 # 
 # In a print statement, answer the following question: What might explain the difference between the plots?
 def do_cat_2(full_merged):
+    '''
+    Creates a catplot from the charge_degree and prediction_nonfelony columns in the full_merged dataframe.
+
+    parameters:
+        full_merged, dataframe: The merge of felony_charge, pred_universe, and arrest_events dataframes. 
+    '''
     sns.catplot(data=full_merged, x='charge_degree', y='prediction_nonfelony',kind='bar')
     plt.savefig('./data/part4_plots/catPlot2.png', bbox_inches='tight')
     print("The main difference between the two plots is that the misdemeanor category is much more prevalent in catPlot2, while the felony category doesn't change much. This difference between the two plots could be explained by the fact that felons are more likely to be rearrested regardless of charge type, whereas someone arrested for a misdemeanor is much more likely to be rearrested for another misdemeanor than they are to be arrested for a felony.")
@@ -43,6 +55,12 @@ def do_cat_2(full_merged):
 # but who did get rearrested for a felony crime?
 
 def do_cat_3(full_merged):
+    '''
+    Creates a catplot from the charge_degree and prediction_felony columns in the full_merged dataframe, hued by y_felony (actual felony rearrests).
+
+    parameters:
+        full_merged, dataframe: The merge of felony_charge, pred_universe, and arrest_events dataframes. 
+    '''
     sns.catplot(data=full_merged, x='charge_degree', y='prediction_felony', kind='bar', hue='y_felony')
     plt.savefig('./data/part4_plots/catPlot3.png', bbox_inches='tight')
     print("This difference means that arrestees that have a current felony charge are predicted as more likely to commit another felony than arrestess with only misdemeanor charges.")

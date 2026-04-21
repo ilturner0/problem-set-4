@@ -28,6 +28,8 @@ def extract_transform():
         - `arrest_events`: The dataframe containing arrest event data
         - `charge_counts`: A dataframe with counts of charges aggregated by charge degree
         - `charge_counts_by_offense`: A dataframe with counts of charges aggregated by both charge degree and offense category
+        - `felony_charge` : A dataframe which details whether each arrest contains a felony charge.
+        - `merged_fels_preds_arrests` : The dataframe result of merging felony_charge, pred_universe, and arrest_events dataframes.
     """
     # Extracts arrest data CSVs into dataframes
     pred_universe = pd.read_csv('https://www.dropbox.com/scl/fi/a2tpqpvkdc8n6advvkpt7/universe_lab9.csv?rlkey=839vsc25njgfftzakr34w2070&dl=1')
