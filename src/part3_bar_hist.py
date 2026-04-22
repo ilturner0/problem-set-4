@@ -18,8 +18,10 @@ def do_fta_bar_plot(pred_universe):
     Returns:
         N/A
     '''
+    plt.clf()
     sns.countplot(data=pred_universe, x='fta')
     plt.savefig('./data/part3_plots/vertical_fta_barplot.png', bbox_inches='tight')
+    plt.clf()
     return
 
 
@@ -37,6 +39,7 @@ def do_hued_fta_bar_plot(pred_universe):
     '''
     sns.countplot(data=pred_universe, x='fta', hue='sex')
     plt.savefig('./data/part3_plots/hued_vertical_fta_barplot.png', bbox_inches='tight')
+    plt.clf()
     return
 
 
@@ -53,6 +56,8 @@ def do_histogram(pred_universe):
     '''
     sns.histplot(pred_universe, x='age_at_arrest')
     plt.savefig('./data/part3_plots/age_histplot.png', bbox_inches='tight')
+    plt.clf()
+
     return
 
 # 4. Plot the same histogram, but create bins that represent the following age groups 
@@ -73,4 +78,5 @@ def do_binned_histogram(pred_universe):
     '''
     sns.histplot(pred_universe, x='age_at_arrest', bins=[18, 21, 30, 40, 100])
     plt.savefig('./data/part3_plots/binned_age_histplot.png', bbox_inches='tight')
+    plt.clf()   
     return

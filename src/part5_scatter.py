@@ -23,6 +23,8 @@ def do_scatter1(full_merged):
     "Most of the points on this side of the plot are also actual felonies, meaning that as the predicted felony value goes up, the current charge is more likely to be a felony. " \
     "Interestingly, this behavior is not mirrored on the y-axis. " \
     "There are many felonies that also have a high predicted value for a nonfelony.")
+    plt.clf()
+    return
 
 
 # 2. Create a scatterplot where the x-axis is prediction for felony rearrest and the y-axis is whether someone was actually rearrested.
@@ -42,4 +44,5 @@ def do_scatter2(full_merged):
     " This would indicate that the model is correctly predicting nonfelony rearrests and felony rearrests. " \
     "Instead, the plot displays two horizontal lines of points at the top and bottom. " \
     "This means that the model is not accurately predicting felony rearrests.")
-
+    plt.clf()
+    return
